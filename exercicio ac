@@ -1,0 +1,50 @@
+package main
+
+import (
+	"fmt"
+)
+
+func ePrimo(numero int) (bool, []int) {
+	if numero <= 1 {
+		return false, []int{}
+	}
+
+	divisores := []int{}
+	limite := numero / 2
+
+	for i := 2; i <= limite; i++ {
+		if numero%i == 0 {
+			divisores = append(divisores, i)
+		}
+	}
+
+	if len(divisores) == 0 {
+		return true, divisores
+	}
+
+	return false, divisores
+}
+
+func main() {
+	var numero int
+	fmt.Print("Digite um número: ")
+	fmt.Scan(&numero)
+
+	primo, divisores := ePrimo(numero)
+
+	if primo {
+		fmt.Printf("%d é um número primo.\n", numero)
+	} else {
+		fmt.Printf("%d não é um número primo. Divisores: %v\n", numero, divisores)
+	}
+}
+
+
+
+
+
+
+
+
+
+
