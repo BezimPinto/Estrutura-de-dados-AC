@@ -5,8 +5,8 @@ import "fmt"
 var cont int
 
 func main() {
-    numDiscos := 3
-    hanoi(numDiscos, "Torre A", "Torre C", "Torre B")
+    numD := 3
+    hanoi(numD, "Torre A", "Torre C", "Torre B")
     fmt.Printf("foi feita em %d rodadas.\n", cont)
 }
 
