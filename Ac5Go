@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	x := []int{1, 2, 3, 4, 5}
+	y := 10
+	n1, n2 := AcharPar(x, y)
+	if n1 != -1 && n2 != -1 {
+		fmt.Printf("par encontrado: %d + %d = %d\n", n1, n2, y)
+	} else {
+		fmt.Println("sem par encontrado.")
+	}
+}
+
+func AcharPar(x []int, y int) (int, int) {
+	seen := make(map[int]int)
+
+	for i, num := range x {
+		complement := y - num
+		if j, ok := seen[complement]; ok {
+			return x[j], x[i]
+		}
+		seen[num] = i
+	}
+
+	return -1, -1
+}
